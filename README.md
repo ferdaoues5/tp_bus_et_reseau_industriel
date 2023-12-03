@@ -6,7 +6,7 @@ La progression de ce travail pratique suivra la séquence suivante : tout d'abor
 
 **L'architecture du système :** 
 
-![](Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.001.jpeg)
+![](media/Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.001.jpeg)
 
 **TP1: Bus I2C** 
 
@@ -19,7 +19,7 @@ Le BMP280, conçu par Bosch, est un capteur de pression et de température qui u
 
 le protocole de communication I²C. Il est équipé de différents registres pouvant être modifiés ou lus pour assurer une configuration précise du capteur. Les registres utilisés comprennent : 
 
-![](Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.002.png)
+![](media/Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.002.png)
 
 En  amorce,  la  première  étape  consiste  à  identifier  le  composant  (ID  =  0x58)  en utilisant  la  fonction  **BMP280\_check()** .  Cette  fonction  nous  autorise  à  lire  la  valeur  du registre ID à l'adresse 0xD0, et la valeur lue doit concorder avec 0x58, qui représente l'adresse du composant. 
 
@@ -55,11 +55,11 @@ l'empreinte  Arduino,  telles  que  les  broches  PB6  et  PB7,  comme  indiqué
 
 - Une UART sur USB : l'UART2 avec les broches PA2 et PA3. 
 
-![](Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.003.png)
+![](media/Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.003.png)
 
-![](Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.004.png)
+![](media/Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.004.png)
 
-![](Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.005.png)
+![](media/Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.005.png)
 
 ` `**Redirection des sorties d'impression** 
 
@@ -89,11 +89,11 @@ En I²C, l'écriture dans un registre se déroule de la manière suivante:
 
 **Résultats :**  
 
-![](Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.008.png)
+![](media/Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.008.png)
 
-![](Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.009.png)
+![](media/Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.009.png)
 
-![](Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.010.png)
+![](media/Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.010.png)
 
 **TP2: Interfaçage STM32 – Raspberry** 
 
@@ -106,7 +106,7 @@ En I²C, l'écriture dans un registre se déroule de la manière suivante:
 
 En premier lieu, on commence par télécharger l'image "Raspberry Pi OS (32-bit) Lite" et on l'installe sur la carte SD à l'aide de **Rpi\_Imager**. Ensuite, on procède à la configuration de l'image en  créant  les fichiers  **ssh**  et  **wpa\_supplicant.conf** dans la partition  boot  pour démarrer le système. 
 
-Configuration réseau du routeur on a utilisé en TP : ![](Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.011.png)
+Configuration réseau du routeur on a utilisé en TP : ![](media/Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.011.png)
 
 SSID : ESE\_Bus\_Network Password : ilovelinux
 
@@ -122,7 +122,7 @@ d'importance,  mais  cela  permettra  de  démarrer  automatiquement  le  serveu
 
 - Le fichier wpa\_supplicant.conf dans la partition boot. Qui contient ce code  
 
-ctrl\_interface=DIR=/var/run/wpa\_supplicant GROUP=netdev update\_config=1 ![](Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.012.png)
+ctrl\_interface=DIR=/var/run/wpa\_supplicant GROUP=netdev update\_config=1 ![](media/Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.012.png)
 
 country=FR 
 
@@ -138,7 +138,7 @@ network={
 
 config.txt dans la partition boot en ajoutant les lignes suivantes à la fin. 
 
-- Pour activer le port série sur connecteur GPIO, sur la partition boot, modifiez ![](Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.013.png)
+- Pour activer le port série sur connecteur GPIO, sur la partition boot, modifiez ![](media/Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.013.png)
 
 le fichier config.txt pour ajouter à la fin les lignes suivantes: 
 
@@ -158,7 +158,7 @@ notre  protocole  de  communication  avec  la  STM32.  Pour  cela,  la  premièr
 
 - Premier démarrage : Nous avons inséré la carte SD dans le Raspberry et l'avons alimenté. En utilisant "ssh", nous nous sommes connectés à notre Raspberry et nous avons obtenu notre adresse IP. 
 
-![](Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.014.jpeg)
+![](media/Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.014.jpeg)
 
 À ce point du TP, notre action se limite à l'affichage des valeurs de température et de pression en utilisant les commandes "**GET\_T**" et "**GET\_P**" sur Minicom. Nous répéterons cette démarche pour les autres commandes telles que "**GET\_K**", "**SET\_K**", et "**GET\_A**". 
 
@@ -209,9 +209,9 @@ L'utilisation  du  bus  CAN  sur  la  STM32  nécessite  l'intermédiaire  d'un 
 
 Les pins RX et TX du transceiver sont initialement connectés à PB8 et PB9 de la carte Nucleo. Il est donc nécessaire de reconfigurer ces connexions pour assurer la communication entre la STM32 et la Raspberry Pi. 
 
-![](Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.015.png)
+![](media/Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.015.png)
 
-![](Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.016.png)
+![](media/Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.016.png)
 
 Pour mettre en marche le module CAN, nous allons employer la fonction 
 
@@ -230,7 +230,7 @@ Ce mode vous permet d'envoyer une trame CAN complexe pour contrôler :
 - La direction de rotation 
 - La vitesse du moteur 
 
-![](Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.017.png)
+![](media/Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.017.png)
 
 - **Mode automatique :** 
 
@@ -257,7 +257,7 @@ L'objectif de cette section est de faire tourner le moteur en fonction de l'évo
 
 **Résultats :** 
 
-![](Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.018.png)
+![](media/Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.018.png)
 
 **TP5:  - Integration I²C - Serial - REST - CAN** 
 
@@ -269,7 +269,7 @@ L'objectif de cette section est de faire tourner le moteur en fonction de l'évo
 
 capteur. En conséquence, la STM32 régule le moteur pas-à-pas de manière  proportionnelle.
 
-![](Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.019.png)
+![](media/Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.019.png)
 
 Tout d'abord, nous avons créé l'URL de la température à l'aide de la fonction **@app.route('/temp/',  methods=['GET',  'POST'])**.  À  l'intérieur  de  cette  fonction, nous  avons  défini  les  deux  méthodes  possibles,  **GET**  et  **POST**,  puis  nous  avons spécifié ces méthodes dans **def api\_temp().** 
 
