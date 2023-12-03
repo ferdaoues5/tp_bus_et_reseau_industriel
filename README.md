@@ -124,16 +124,6 @@ d'importance,  mais  cela  permettra  de  démarrer  automatiquement  le  serveu
 
 ctrl\_interface=DIR=/var/run/wpa\_supplicant GROUP=netdev update\_config=1 ![](media/Aspose.Words.3a5b7c8a-d059-45df-bf65-ea8c09280619.012.png)
 
-country=FR 
-
-network={ 
-
-` `ssid="<Name of your wireless LAN>" 
-
-` `psk="<Password for your wireless LAN>" 
-
-}
-
 - Pour activer le port série sur le connecteur GPIO, nous avons modifié le fichier 
 
 config.txt dans la partition boot en ajoutant les lignes suivantes à la fin. 
